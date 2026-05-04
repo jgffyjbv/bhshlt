@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BH SHLT Management | Professional Property Services</title>
+    <!-- Google Fonts + simple reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* header & nav */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .logo p {
+            font-size: 0.75rem;
+            color: #475569;
+            font-weight: 500;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #2c6e9e;
+        }
+        /* buttons */
+        .btn {
+            display: inline-block;
+            background-color: #1e3c72;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #1e3c72;
+            color: #1e3c72;
+        }
+        .btn-outline:hover {
+            background: #1e3c72;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #0f2b4f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        /* hero */
+        .hero {
+            padding: 4rem 0 3rem 0;
+            background: linear-gradient(120deg, #ffffff 0%, #f1f5f9 100%);
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: #e2f0ff;
+            color: #1e3c72;
+            display: inline-block;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #0a2540;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #334155;
+            max-width: 550px;
+            margin-bottom: 2rem;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .stat span {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #1e3c72;
+        }
+        /* services */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #0f172a;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            transition: all 0.25s;
+            border: 1px solid #eef2ff;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            border-color: #cbdff2;
+        }
+        .service-icon {
+            font-size: 2.7rem;
+            color: #1e3c72;
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            color: #475569;
+        }
+        /* about/company highlight */
+        .about {
+            background: #f0f4fa;
+            padding: 4rem 0;
+        }
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .contact-block {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .contact-item i {
+            width: 32px;
+            font-size: 1.3rem;
+            color: #1e3c72;
+        }
+        /* footer */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .nav-flex {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .nav-links a {
+                margin: 0 1rem;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">
+                <h1>BH SHLT MANAGEMENT</h1>
+                <p>property & facility experts</p>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO / HOME section -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">⭐ Trusted by local businesses & banks</div>
+                    <h1>Full‑service management,<br>clean & repair solutions</h1>
+                    <p>Professional property maintenance and facility management for commercial and residential clients in Rockland County and beyond.</p>
+                    <a href="#contact" class="btn">Request consultation <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></a>
+                    <div class="hero-stats">
+                        <div class="stat"><span>✓</span> 24/7 support</div>
+                        <div class="stat"><span>✓</span> insured & licensed</div>
+                    </div>
+                </div>
+                <div style="flex: 0.6; text-align: center;">
+                    <i class="fas fa-hard-hat" style="font-size: 9rem; color: #cbdff2 opacity 0.5;"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION : management / cleaning / maintenance / repair -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Professional services <br><span style="font-weight: 400; font-size: 1.2rem;">tailored for your property</span></h2>
+                <div class="cards">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3>Property Management</h3>
+                        <p>Full-cycle management: tenant coordination, leasing support, inspections and operational efficiency.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-broom"></i></div>
+                        <h3>Cleaning Services</h3>
+                        <p>Commercial & residential deep cleaning, janitorial, post-construction cleanup, and scheduled maintenance.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-tools"></i></div>
+                        <h3>Maintenance & Repairs</h3>
+                        <p>Emergency repairs, HVAC, plumbing, electrical, and general upkeep to keep your property safe and pristine.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chalkboard-user"></i></div>
+                        <h3>Facility Solutions</h3>
+                        <p>Custom maintenance plans, energy efficiency checks, and vendor coordination for any size facility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- about + contact info for bank credibility -->
+        <section class="about">
+            <div class="container about-grid">
+                <div class="about-text">
+                    <h2>Reliable partner for property owners<br> and financial institutions</h2>
+                    <p style="margin-bottom: 1.5rem;">BH SHLT Management provides licensed, fully insured property solutions across Spring Valley and the wider New York area. With years of field experience, we deliver transparent reporting and quality assurance — ready to present to your bank or stakeholders.</p>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: #1e3c72; margin-right: 8px;"></i> Fully compliant business records</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: #1e3c72; margin-right: 8px;"></i> Verifiable contracts & references</li>
+                        <li><i class="fas fa-check-circle" style="color: #1e3c72; margin-right: 8px;"></i> Professional portfolio available upon request</li>
+                    </ul>
+                </div>
+                <div class="contact-block" id="contact">
+                    <h3 style="margin-bottom: 1.2rem; font-size: 1.6rem;">Get in touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-pin"></i>
+                        <div>
+                            <strong>Headquarters</strong><br>
+                            27b Washington Ave<br>
+                            Spring Valley, NY 10977
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="tel:+16465281530" style="text-decoration: none; color: #1e293b;">(646) 528-1530</a><br>
+                            <a href="tel:+18456428540" style="text-decoration: none; color: #1e293b;">(845) 642-8540</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:info@bhshltmgmt.com" style="text-decoration: none; color:#1e3c72;">info@bhshltmgmt.com</a>
+                        </div>
+                    </div>
+                    <hr style="margin: 1.2rem 0; border: 0; height: 1px; background: #e2e8f0;">
+                    <p><i class="fas fa-clock"></i> Mon–Fri: 8:00 AM – 6:00 PM | Sat by appointment</p>
+                    <a href="tel:+18456428540" class="btn" style="margin-top: 1.5rem; display: inline-block;"><i class="fas fa-phone"></i> Call now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- simple map placeholder to show real location -->
+        <div style="padding: 0 0 2rem 0; background: #f0f4fa;">
+            <div class="container">
+                <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.05);">
+                    <iframe 
+                        width="100%" 
+                        height="280" 
+                        style="border:0; display: block;" 
+                        loading="lazy" 
+                        allowfullscreen 
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=27b+Washington+Ave+Spring+Valley+NY+10977">
+                    </iframe>
+                </div>
+                <p style="font-size: 0.7rem; text-align: center; margin-top: 0.5rem; color: #475569;">📍 27b Washington Ave, Spring Valley, NY 10977</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>© 2025 BH SHLT MANAGEMENT — All management, cleaning, maintenance & repair solutions</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Licensed & insured | Serving Rockland County, NY</p>
+        </div>
+    </footer>
+</body>
+</html>
